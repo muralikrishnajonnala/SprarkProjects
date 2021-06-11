@@ -15,22 +15,14 @@ object SparkRDBMSRead {
     import spark.sqlContext.implicits._
 
     println("**********Read Start*************")
-    /*val sqlDf = spark.read.format("jdbc")
+    val sqlDf = spark.read.format("jdbc")
       .option("url", "jdbc:mysql://mysql56.cki8jgd5zszv.ap-south-1.rds.amazonaws.com:3306/batch28")
       .option("driver", "com.mysql.cj.jdbc.Driver")
       .option("dbtable", "murali_tab")
       .option("user", "root")
       .option("password", "Aditya908")
       .load()
-*/
-       val sqlDf = spark.read.format("jdbc")
-      .option("url", "jdbc:mysql://mysql56.cki8jgd5zszv.ap-south-1.rds.amazonaws.com:3306/batch28")
-      .option("driver", "com.mysql.cj.jdbc.Driver")
-      .option("dbtable", "murali_tab")
-      .option("user", "root")
-      .option("password", "Aditya908")
-      .load()
-      
+
     sqlDf.show()
     //sqlDf.printSchema()
 
