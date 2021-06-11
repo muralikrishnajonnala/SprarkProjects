@@ -6,7 +6,6 @@ import org.apache.spark.sql.SparkSession
 // added extra dependency for mysql connector
 object SparkRDBMSRead {
   def main(args: Array[String]): Unit = {
-
     val conf = new SparkConf().setAppName("RDBMSRead").setMaster("local[*]")
     val sc = new SparkContext(conf)
     sc.setLogLevel("ERROR")
@@ -28,5 +27,4 @@ object SparkRDBMSRead {
 
     println("**********Read Complete*************")
   }
-
 }
