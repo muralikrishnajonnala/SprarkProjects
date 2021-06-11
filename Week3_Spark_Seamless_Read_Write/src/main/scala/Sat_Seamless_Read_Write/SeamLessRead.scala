@@ -13,7 +13,7 @@ object SeamLessRead {
     val spark = SparkSession.builder().master("local[*]").getOrCreate()
     import spark.implicits._
 
-    println("*****************************Reading usdata csv without header*****************************")
+    println("****************Reading usdata csv without header*****************")
     val usdataDf = spark.read.format("csv").load("file:///E://data//usdata.csv")
     usdataDf.show(3)
     usdataDf.printSchema()
