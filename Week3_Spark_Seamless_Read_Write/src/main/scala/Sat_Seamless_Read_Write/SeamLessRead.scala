@@ -40,5 +40,6 @@ object SeamLessRead {
     val orcDF = spark.read.format("orc").option("header", "true").load("file:///E://data//part_orc.orc")
     orcDF.show(3, false)*/
 
+    
   }
 }
