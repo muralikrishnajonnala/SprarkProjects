@@ -19,7 +19,7 @@ object RevisonAllSpark {
 
     val columnsList = List("category", "product", "txnno", "txndate", "amount", "city", "state", "spendby", "custno")
 
-    println("************1 List creation************")
+    println("***********1 List creation***********")
     println("adding 2 for each element add2")
     val listInt = List(1, 4, 6, 7)
     val resInt = listInt.map(x => x + 2)

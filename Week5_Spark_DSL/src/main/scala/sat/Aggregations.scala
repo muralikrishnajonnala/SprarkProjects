@@ -19,7 +19,7 @@ object Aggregations {
     println("*******reading txn_header data***********")
     val csvdf = spark.read.format("csv").option("header", "true").load("file:///E://data//txns_withheader")
 
-     println("*******groupBy: category and aggregation: sum***********")
+    println("*******groupBy: category and aggregation: sum***********")
     val sumdf = csvdf.groupBy("category").agg(sum("amount").alias("sum_amt"))
     sumdf.show()
 
