@@ -18,7 +18,7 @@ object SparkPartition {
     println("**********Reading txns data start***********")
     val txnDf = spark.read.option("header", true).format("csv").load("file:///E://data//txns_withheader")
     txnDf.show(3, false)
-    println("**********Reading txns data end***************")
+    println("**********Reading txns data end*************")
 
     // single partition
     /*println("**********write format: parquet(default) Partition**********")

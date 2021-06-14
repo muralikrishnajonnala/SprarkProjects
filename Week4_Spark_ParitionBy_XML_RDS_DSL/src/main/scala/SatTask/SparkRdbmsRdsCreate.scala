@@ -16,7 +16,7 @@ object SparkRdbmsRdsCreate {
 
     val txnDF = spark.read.format("csv").option("header", "true").load("file:///E://data//txns_withheader")
 
-    println("**********Write Start*************")
+    println("**********Write Start***********")
 
     // writing data into amazon sql table-murali_tab
     val df = txnDF.write.format("jdbc")

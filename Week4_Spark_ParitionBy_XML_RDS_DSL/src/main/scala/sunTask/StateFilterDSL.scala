@@ -17,6 +17,7 @@ object StateFilterDSL {
 					//reading usdata
 					val usdataDf = spark.read.format("csv").option("inferSchema", "true").option("header", "true").load("file:///E://data//usdata.csv")
 					usdataDf.show(3)
+					println("*******Filter state = LA data*******")
 					//Filter state = LA data
 					val stateDf =  usdataDf.filter(col("state")==="LA")
 					stateDf.show(3)

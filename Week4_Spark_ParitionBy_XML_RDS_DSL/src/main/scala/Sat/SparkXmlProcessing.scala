@@ -20,7 +20,7 @@ object SparkXmlProcessing {
     val noteXmlDf = spark.read.format("com.databricks.spark.xml").option("rowTag", "note").load("file:///E://data//note.xml")
     noteXmlDf.show(3, false)
     noteXmlDf.printSchema()
-    println("**********Reading note xml data end***************")
+    println("**********Reading note xml data end**************")
 
     println("**********Reading book xml data start***********")
     val bookXmlDF = spark.read.format("com.databricks.spark.xml").option("rowTag", "book").load("file:///E://data//complexjson//book.xml")

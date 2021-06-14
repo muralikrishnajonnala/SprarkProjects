@@ -21,7 +21,7 @@ object TxnRead_ProcessDSL_WriteParquet {
     val fil_data = txnDF.filter(col("category")==="Gymnastics")
     fil_data.show(3)
     
-    println("**********write format: parquet(default)********")
+    println("*******write format: parquet(default)********")
     fil_data.write.save("file:///E://28output//Scala28Week4//task//record_parquet_format")
     println("**********write complete***********")
 }

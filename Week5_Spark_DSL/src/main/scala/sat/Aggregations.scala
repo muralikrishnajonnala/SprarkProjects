@@ -19,15 +19,19 @@ object Aggregations {
     println("*******reading txn_header data***********")
     val csvdf = spark.read.format("csv").option("header", "true").load("file:///E://data//txns_withheader")
 
+     println("*******groupBy: category and aggregation: sum***********")
     val sumdf = csvdf.groupBy("category").agg(sum("amount").alias("sum_amt"))
     sumdf.show()
 
+    println("*******groupBy: category and aggregation: min***********")
     val mindf = csvdf.groupBy("category").agg(min("amount").alias("min_amt"))
     mindf.show()
 
+    println("*******groupBy: category and aggregation: max***********")
     val maxdf = csvdf.groupBy("category").agg(max("amount").alias("max_amt"))
     maxdf.show()
 
+    println("****groupBy: category and aggregation: max convert float result to int****")
     val castToIntDf = csvdf.groupBy("category").agg(max("amount").alias("max_amt_int")).withColumn("max_amt_int", col("max_amt_int").cast(IntegerType))
     castToIntDf.show()
   }

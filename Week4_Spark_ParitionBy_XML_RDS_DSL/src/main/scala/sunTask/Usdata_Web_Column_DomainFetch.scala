@@ -17,7 +17,7 @@ object Usdata_Web_Column_DomainFetch {
     //reading usdata
     val usdataDf = spark.read.format("csv").option("inferSchema", "true").option("header", "true").load("file:///E://data//usdata.csv")
     usdataDf.show(3)
-    //from web col fetch domain name
+    println("*******from web col fetch domain name*******")
     val domainDf = usdataDf.withColumn("web", expr("split(web,'\\\\.')[1]"))
     domainDf.show(3)
 

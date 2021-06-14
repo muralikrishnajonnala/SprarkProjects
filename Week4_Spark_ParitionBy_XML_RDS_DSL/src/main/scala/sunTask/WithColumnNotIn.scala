@@ -26,7 +26,6 @@ object WithColumnNotIn {
     // writing data in HDFS in avro format
     println("**********in HDFS write format:avro***********")
     withcolDf.write.format("com.databricks.spark.avro").mode("overwrite").save("hdfs:/user/cloudera/batch28/week4/task/avrowrite_spark")
-
     println("**********Write end*************")
 
   }

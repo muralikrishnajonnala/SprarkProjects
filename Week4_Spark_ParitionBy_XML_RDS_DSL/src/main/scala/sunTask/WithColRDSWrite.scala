@@ -15,7 +15,7 @@ object WithColRDSWrite {
     val spark = SparkSession.builder().master("local[*]").getOrCreate()
     import spark.implicits._
 
-    //reading txn data from edgenaode
+    //reading txn data
     val txnDf = spark.read.option("header", true).format("csv").load("file:///E://data//txns_withheader")
     txnDf.show(5)
     //in category, no Gymnastics, Team Sports
@@ -34,7 +34,6 @@ object WithColRDSWrite {
       .option("password", "Aditya908")
       .mode("overwrite")
       .save()
-
     println("**********RDS Write Complete*************")
 
   }

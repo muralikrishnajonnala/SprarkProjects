@@ -30,12 +30,12 @@ object RevisonAllSpark {
     val resStr = listStr.filter(x => x.contains("zeyo"))
     resStr.foreach(println)
 
-    println("************3 read fiel1.txt and fetch gymanstics************")
+    println("******3 read fiel1.txt and fetch gymanstics*******")
     val file1 = sc.textFile("file:///E://data//revdata//file1.txt")
     val gymdata = file1.filter(x => x.contains("Gymnastics"))
     gymdata.take(5).foreach(println)
 
-    println("********4 column based filter: product contains Gymnastics*********")
+    println("***4 column based filter: product contains Gymnastics***")
     val mapsplit = gymdata.map(x => x.split(","))
     println("apply schema")
     val schemardd = mapsplit.map(x => txnSchema(x(0), x(1), x(2), x(3), x(4), x(5), x(6), x(7), x(8)))
