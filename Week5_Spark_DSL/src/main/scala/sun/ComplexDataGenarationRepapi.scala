@@ -7,7 +7,7 @@ import org.apache.spark.sql.functions._
 
 object ComplexDataGenarationRepapi {
   def main(args: Array[String]): Unit = {
-    val conf = new SparkConf().setAppName("ComplexDataProcessing").setMaster("local[*]")
+    val conf = new SparkConf().setAppName("ComplexData_Processing_Genaration").setMaster("local[*]")
     val sc = new SparkContext(conf)
     sc.setLogLevel("ERROR")
 
@@ -26,7 +26,7 @@ object ComplexDataGenarationRepapi {
     flattenDf.show()
     flattenDf.printSchema()
 
-    println("*********complex data genaration**********")
+    println("*********complex data generation**********")
     val complexDf = flattenDf.select(
                                       col("page"),
                                       col("per_page"),

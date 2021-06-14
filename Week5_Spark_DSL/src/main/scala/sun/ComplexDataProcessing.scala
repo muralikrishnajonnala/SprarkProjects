@@ -13,7 +13,7 @@ object ComplexDataProcessing {
     val spark = SparkSession.builder().master("local[*]").getOrCreate()
     import spark.implicits._
 
-    println("*********multiline json read**********")
+    println("******multiline json read******")
     val jsonDf = spark.read.format("json").option("multiLine", "true").load("file:///E://data//zeyodata.json")
     jsonDf.show(3, false)
     jsonDf.printSchema()

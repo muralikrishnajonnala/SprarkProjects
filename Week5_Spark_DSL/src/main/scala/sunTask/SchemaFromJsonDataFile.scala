@@ -15,7 +15,7 @@ object SchemaFromJsonDataFile {
 
     println("***************Reading Json******************")
     val jsonDf = spark.read.format("json").load("file:///E://data//devices.json")
-    jsonDf.show(5)
+    jsonDf.show(3)
     println("***************Printing Schema****************")
     jsonDf.schema.foreach(println)
   }

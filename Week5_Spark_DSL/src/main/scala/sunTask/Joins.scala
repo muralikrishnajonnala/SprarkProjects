@@ -23,7 +23,7 @@ object Joins {
     val innerJoinDf = j1Df.join(j2Df, j1Df("txnno") === j2Df("txn_number"), "inner")
     innerJoinDf.show()
 
-    println("*********InnerJoin without ambiguous column ****************")
+    println("******InnerJoin without ambiguous column dropping column******")
     val innerJoinDf_drop = j1Df.join(j2Df, j1Df("txnno") === j2Df("txn_number"), "inner").drop(j2Df.col("txn_number"))
     innerJoinDf_drop.show()
 
@@ -32,15 +32,15 @@ object Joins {
     val innerJoinDf_seq = j1Df.join(j2Df,Seq("txn_number"), "inner")
     innerJoinDf_seq.show()*/
     
-    println("**************LeftJoin without ambiguous column ********************")
+    println("*********LeftJoin without ambiguous column dropping column******")
     val leftJoinDf_drop = j1Df.join(j2Df, j1Df("txnno") === j2Df("txn_number"), "left").drop(j2Df.col("txn_number"))
     leftJoinDf_drop.show()
     
-    println("**************RightJoin without ambiguous column ********************")
+    println("*******RightJoin without ambiguous column dropping column********")
     val rightJoinDf_drop = j1Df.join(j2Df, j1Df("txnno") === j2Df("txn_number"), "right").drop(j2Df.col("txn_number"))
     rightJoinDf_drop.show()
 
-    println("**************OuterJoin without ambiguous column ********************")
+    println("*******OuterJoin without ambiguous column dropping column****")
     val outerJoinDf_drop = j1Df.join(j2Df, j1Df("txnno") === j2Df("txn_number"), "outer").drop(j2Df.col("txn_number"))
     outerJoinDf_drop.show()
 

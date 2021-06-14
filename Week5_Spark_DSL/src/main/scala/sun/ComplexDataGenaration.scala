@@ -7,7 +7,7 @@ import org.apache.spark.sql.functions._
 
 object ComplexDataGenaration {
   def main(args: Array[String]): Unit = {
-    val conf = new SparkConf().setAppName("ComplexDataProcessing").setMaster("local[*]")
+    val conf = new SparkConf().setAppName("ComplexDataGenaration").setMaster("local[*]")
     val sc = new SparkContext(conf)
     sc.setLogLevel("ERROR")
 
@@ -19,7 +19,7 @@ object ComplexDataGenaration {
 
     println("*********jsondf process**********")
     val flattenDf = jsonDf.select("No", "Year", "address.permanent_address", "address.temporary_address", "firstname", "lastname")
-    flattenDf.show()
+    flattenDf.show(false)
     flattenDf.printSchema()
 
     println("*********complex data genaration**********")
@@ -37,8 +37,7 @@ object ComplexDataGenaration {
                                           ).alias("name")
                                          ).alias("record")
                                       )
-  
-  complexDf.show()
+  complexDf.show(false)
   complexDf.printSchema()
   }
 }

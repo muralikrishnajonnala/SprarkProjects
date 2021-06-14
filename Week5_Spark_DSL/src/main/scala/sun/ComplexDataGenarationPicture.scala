@@ -7,7 +7,7 @@ import org.apache.spark.sql.functions._
 
 object ComplexDataGenarationPicture {
   def main(args: Array[String]): Unit = {
-    val conf = new SparkConf().setAppName("ComplexDataProcessing").setMaster("local[*]")
+    val conf = new SparkConf().setAppName("ComplexData_Processing_Genaration").setMaster("local[*]")
     val sc = new SparkContext(conf)
     sc.setLogLevel("ERROR")
 
@@ -22,10 +22,10 @@ object ComplexDataGenarationPicture {
                     col( "name"), 
                     col("thumbnail.height").alias("thumbnail_height"),col("thumbnail.url").alias("thumbnail_url"),col("thumbnail.width").alias("thumbnail_width"),
                     col("type"))
-    flattenDf.show()
+    flattenDf.show(false)
     flattenDf.printSchema()
 
-    println("*********complex data genaration**********")
+    println("*********complex data generation**********")
     val complexDf = flattenDf.select(
                                       col("id"),
                                    struct(
@@ -42,7 +42,7 @@ object ComplexDataGenarationPicture {
                                      col("type")
                                       )
   
-  complexDf.show()
+  complexDf.show(false)
   complexDf.printSchema()
   }
 }
