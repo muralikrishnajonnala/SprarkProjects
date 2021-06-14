@@ -35,9 +35,9 @@ object RevisonAllSpark {
     val gymdata = file1.filter(x => x.contains("Gymnastics"))
     gymdata.take(5).foreach(println)
 
-    println("************4 column based fileter: product contains Gymnastics************")
-    println("apply schema")
+    println("********4 column based filter: product contains Gymnastics*********")
     val mapsplit = gymdata.map(x => x.split(","))
+    println("apply schema")
     val schemardd = mapsplit.map(x => txnSchema(x(0), x(1), x(2), x(3), x(4), x(5), x(6), x(7), x(8)))
     val schemafilter = schemardd.filter(x => x.product.contains("Gymnastics"))
     schemafilter.take(3).foreach(println)
@@ -96,7 +96,7 @@ object RevisonAllSpark {
     finaldf.show(3)
 
     println("*******12 write data as avro***********")
-    finaldf.write.format("com.databricks.spark.avro").partitionBy("category").mode("append").save("file:///E://28output//Scala28Week5//class//record_avro_format")
+    finaldf.write.format("com.databricks.spark.avro").partitionBy("category").mode("overwrite").save("file:///E://28output//Scala28Week5//class//record_avro_format")
     println("***********data written***********")
   }
 }
