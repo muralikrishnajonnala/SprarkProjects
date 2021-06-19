@@ -35,5 +35,6 @@ object URLDataProcessing_RandomUser {
 
     web_users_df.show()
     web_users_df.printSchema()
+    println("Count: "+web_users_df.count())
   }
 }
