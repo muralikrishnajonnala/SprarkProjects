@@ -15,7 +15,7 @@ object MultiArrayProessing {
     val spark = SparkSession.builder().master("local[*]").getOrCreate()
     import spark.implicits._
 
-    println("*********multiline topping read**********")
+    println("*********multiline json read**********")
     val arrayjsonDf = spark.read.format("json").option("multiLine", "true").load("file:///E://data//MultiArrays.json")
     arrayjsonDf.show()
     arrayjsonDf.printSchema()
