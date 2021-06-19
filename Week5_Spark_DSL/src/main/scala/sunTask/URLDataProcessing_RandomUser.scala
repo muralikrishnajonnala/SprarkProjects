@@ -20,13 +20,13 @@ object URLDataProcessing_RandomUser {
     println("***********URL Data***************")
     println(urlData)
 
-    val rdd = sc.parallelize(urlData :: Nil)
-    val json_file = spark.read.option("multiLine", "false").json(rdd)
-    json_file.show()
-    json_file.printSchema()
+    val url_rdd = sc.parallelize(urlData :: Nil)
+    val json_file_Df = spark.read.option("multiLine", "false").json(url_rdd)
+    json_file_Df.show()
+    json_file_Df.printSchema()
 
     println("***********Processing complex data***************")
-    val web_users_df = json_file.withColumn("results", explode(col("results")))
+    val web_users_df = json_file_Df.withColumn("results", explode(col("results")))
       .select("nationality", "results.user.cell", "results.user.dob", "results.user.email", "results.user.gender", "results.user.location.city",
         "results.user.location.state", "results.user.location.street", "results.user.location.zip", "results.user.md5", "results.user.name.first",
         "results.user.name.last", "results.user.name.title", "results.user.password", "results.user.phone", "results.user.picture.large",
